@@ -5,8 +5,6 @@ import "fmt"
 import "strings"
 import "errors"
 
-//import "net/http/httptest"
-
 type hashTestCase struct {
 	password string
 	hash     string
@@ -49,7 +47,7 @@ func (t TestClient) Get(hash string) (response string, err error) {
 	if t.shouldFail {
 		return "", errors.New("client failed")
 	}
-	return strings.Join(t.results, "\n"), nil
+	return strings.Join(t.results, "\r\n"), nil
 }
 
 func TestQueryApi(t *testing.T) {

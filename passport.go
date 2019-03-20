@@ -70,7 +70,7 @@ func queryApi(client ApiClient, hash string) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-	for _, line := range strings.Split(response, "\n") {
+	for _, line := range strings.Split(response, "\r\n") {
 		text := strings.Split(line, ":")
 		if text[0] == string(hash[apiHashSizeSent:]) {
 			count, err := strconv.Atoi(text[1])
